@@ -26,9 +26,8 @@ std::vector<int> sort_b(std::vector<int> v)
   return v;
 }
 
-auto create_series()
+auto create_series(const int sz = 100'000)
 {
-  const int sz{100'000};
   std::vector<int> v(sz);
   std::iota(std::begin(v), std::end(v), 0);
   std::reverse(std::begin(v), std::end(v));
@@ -42,7 +41,7 @@ int main()
   #endif
   assert(!"Do not profile in debug mode");
   static_assert("C++17");
-  const auto v = create_series();
+  const auto v = create_series(2'000'000);
   const auto a = sort_a(v);
   const auto b = sort_b(v);
   if (a != b) return 1;
