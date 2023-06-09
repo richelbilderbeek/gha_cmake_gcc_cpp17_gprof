@@ -28,7 +28,7 @@ jobs:
         run: ./build/gha_cmake_gcc_cpp17_gprof
 
       - name: Produce the gprof log
-        run: gprof gha_cmake_gcc_cpp17_gprof > gprof.log
+        run: gprof ./build/gha_cmake_gcc_cpp17_gprof > gprof.log
 
       - name: Read the 100 top lines
         run: head gprof.log -n 100
