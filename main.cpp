@@ -46,6 +46,10 @@ int main()
   #error This example assumes GCC
   #endif
 
+  #ifdef __clang__
+  #error No clang in this example please
+  #endif
+
   const auto v = create_series(500'000);
   const auto a = sort_a(v);
   const auto b = sort_b(v);
