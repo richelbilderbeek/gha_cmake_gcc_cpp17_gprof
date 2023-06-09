@@ -7,6 +7,9 @@ on:
   schedule:
   - cron: "0 0 1 * *"
 
+strategy:
+  matrix:
+    compiler: [gcc, clang]
 
 jobs:
   check_build:
@@ -20,15 +23,21 @@ jobs:
 
       - name: Set up CMake build folder for release mode, thanks https://stackoverflow.com/a/64719718
         run: cmake -B build . -DCMAKE_BUILD_TYPE=Release 
+        env:
+          CC: ${{ matrix.compiler }}
 
       - name: Run CMake
         run: cmake --build build 
+        env:
+          CC: ${{ matrix.compiler }}
 
       - name: Run the program
         run: ./build/gha_cmake_gcc_cpp17_gprof
 
       - name: Produce the gprof log
         run: gprof ./build/gha_cmake_gcc_cpp17_gprof > gprof.log
+        env:
+          CC: ${{ matrix.compiler }}
 
       - name: Read the 100 top lines
         run: head gprof.log -n 100
