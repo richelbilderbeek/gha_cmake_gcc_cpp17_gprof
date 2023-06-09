@@ -8,7 +8,7 @@ Branch   |[![GitHub Actions logo](pics/GitHubActions.png)](https://github.com/ri
 The goal of this project is to have a clean GitHub Actions build, with specs:
 
  * Build system: `CMake`
- * C++ compiler: `gcc`
+ * C++ compiler: `g++`
  * C++ version: `C++17`
  * Libraries: `STL` only
  * Code coverage: none
@@ -21,6 +21,7 @@ More complex builds:
 Equally complex builds:
 
  * Use `qmake` (instead of `CMake`): [gha_qmake_gcc_cpp17_gprof](https://github.com/richelbilderbeek/gha_qmake_gcc_cpp17_gprof)
+ * Use `clang` (instead of `g++`): [gha_cmake_clang_cpp17_gprof](https://github.com/richelbilderbeek/gha_cmake_clang_cpp17_gprof)
 
 Less complex builds:
  * [none]
