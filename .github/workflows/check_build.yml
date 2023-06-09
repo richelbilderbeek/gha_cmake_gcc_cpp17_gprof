@@ -18,10 +18,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Run CMake
-        run: |
-          cmake -B build .
-          cmake --build build 
+      - name: Set up CMake build folder
+        run: cmake -B build .
+
+      - name: Run CMake in release mode
+        run: cmake --build build -DCMAKE_BUILD_TYPE=Release
 
       - name: Run make
         run: make --silent release
