@@ -24,9 +24,6 @@ jobs:
       - name: Run CMake
         run: cmake --build build 
 
-      - name: Run make
-        run: make --silent
-
       - name: Run the program
         run: ./build/gha_cmake_gcc_cpp17_gprof
 
