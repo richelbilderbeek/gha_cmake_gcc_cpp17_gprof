@@ -22,7 +22,7 @@ jobs:
         run: cmake -B build .
 
       - name: Run CMake in release mode
-        run: cmake --build build -DCMAKE_BUILD_TYPE=Release
+        run: cmake --build build -- -DCMAKE_BUILD_TYPE=Release
 
       - name: Run make
         run: make --silent release
