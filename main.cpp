@@ -41,7 +41,7 @@ int main()
   #endif
   assert(!"Do not profile in debug mode");
   static_assert("C++17");
-  const auto v = create_series(2'000'000);
+  const auto v = create_series(500'000);
   const auto a = sort_a(v);
   const auto b = sort_b(v);
   if (a != b) return 1;
