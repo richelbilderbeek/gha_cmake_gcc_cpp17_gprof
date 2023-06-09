@@ -1,0 +1,39 @@
+# Build and profile the C++ code
+name: Check build
+
+on:
+  push:
+  pull_request:
+  schedule:
+  - cron: "0 0 1 * *"
+
+
+jobs:
+  check_build:
+
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run CMake
+        run: |
+          cmake -B build .
+          cmake --build build 
+
+      - name: Run make
+        run: make --silent release
+
+      - name: Run the program
+        run: ./build/gha_cmake_gcc_cpp17_gprof
+
+      - name: Produce the gprof log
+        run: gprof gha_cmake_gcc_cpp17_gprof > gprof.log
+
+      - name: Read the 100 top lines
+        run: head gprof.log -n 100
+
+      - name: Get g++ version
+        run: g++ --version
