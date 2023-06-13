@@ -16,7 +16,8 @@ The goal of this project is to have a clean GitHub Actions build, with specs:
  * Source: one single file, `main.cpp`
 
 More complex builds:
- * [none]
+
+ * Use `conan` to add a Boost library: [gha_cmake_gcc_cpp17_conan_boost_gprof](https://github.com/richelbilderbeek/gha_cmake_gcc_cpp17_conan_boost_gprof)
 
 Equally complex builds:
 
