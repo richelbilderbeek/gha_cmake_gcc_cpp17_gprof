@@ -25,5 +25,6 @@ Equally complex builds:
  * Use `clang` (instead of `g++`): [gha_cmake_clang_cpp17_gprof](https://github.com/richelbilderbeek/gha_cmake_clang_cpp17_gprof)
 
 Less complex builds:
- * [none]
+
+ * No `gprof`: [gha_cmake_gcc_cpp17](https://github.com/richelbilderbeek/gha_cmake_gcc_cpp17)
  
